@@ -3,9 +3,6 @@
 // var url = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/significant_week.geojson";
 
 // Create map object
-// Creating our initial map object
-// We set the longitude, latitude, and the starting zoom level for sf
-// This gets inserted into the div with an id of 'map' in index.html
 var myMap = L.map("map", {
     center: [38.500000,-98.000000],
     zoom: 5
