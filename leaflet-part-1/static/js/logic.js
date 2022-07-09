@@ -16,7 +16,7 @@ var tilelayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
 
 tilelayer.addTo(myMap);
 
-  // Store our API endpoint
+  // endpoint
 var queryUrl = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson";
 d3.json(queryUrl).then(function(data){
     function styleInfo(feature) {
@@ -33,7 +33,7 @@ d3.json(queryUrl).then(function(data){
 // set different color from magnitude
 function getColor(magnitude) {
     switch (true) {
-    case magnitude > 100:
+    case magnitude > 90:
     return "#ea2c2c";
     case magnitude > 70:
     return "#ea822c";
@@ -57,7 +57,7 @@ function getColor(magnitude) {
 }
  // GeoJSON layer
 L.geoJson(data, {
-    // Maken cricles
+    // Making cricles
 pointToLayer: function(feature, latlng) {
     return L.circleMarker(latlng);
 },
@@ -78,7 +78,7 @@ position: "bottomright"
 legend.onAdd = function() {
 var div = L.DomUtil.create("div", "info legend");
 
-var grades = [-10, 10, 30, 50, 70, 100];
+var grades = [-10, 10, 30, 50, 70, 90];
 var colors = [
     "#98ee00",
     "#d4ee00",
@@ -97,7 +97,7 @@ for (var i = 0; i < grades.length; i++) {
 return div;
 };
 
-  // Finally, we our legend to the map.
+  // Finally, our legend to the map.
 legend.addTo(myMap);
 
 
